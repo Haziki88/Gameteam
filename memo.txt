@@ -1,0 +1,5 @@
+敵を避けるゲーム
+必要なクラス
+player
+enemy
+field
