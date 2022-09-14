@@ -1,5 +1,5 @@
 敵を避けるゲーム
-クラス
+必要なクラス
 player
 enemy
 field
