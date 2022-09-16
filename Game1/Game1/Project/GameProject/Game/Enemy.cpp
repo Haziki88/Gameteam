@@ -14,9 +14,9 @@ Enemy::Enemy(const CVector2D& p, bool flip) :
 	m_pos = p;
 	//中心位置設定
 	m_img.SetSize(400, 300);
-	m_img.SetCenter(128, 224);
+	m_img.SetCenter(250, 300);
 	//当たり判定用矩形設定
-	m_rect = CRect(-32, -128, 32, 0);
+	m_rect = CRect(-150, -300, 150, 0);
 	//反転フラグ
 	m_flip = flip;
 	//通常状態へ
@@ -29,7 +29,7 @@ Enemy::Enemy(const CVector2D& p, bool flip) :
 }void Enemy::StateIdle()
 {
 	//移動量
-	const float move_speed = 6;
+	const float move_speed = 2;
 	//移動フラグ
 	bool move_flag = false;
 	//ジャンプ力
@@ -55,11 +55,7 @@ Enemy::Enemy(const CVector2D& p, bool flip) :
 				m_flip = false;
 				move_flag = true;
 			}
-			else {
-				//攻撃状態へ移行
-				m_state = eState_Attack;
-				m_attack_no++;
-			}
+			
 	}
 
 
