@@ -68,7 +68,7 @@ void Init(void)
 
 	//ƒvƒŒƒCƒ„[‚Ì¶¬
 	Base::Add(new Player(CVector2D(200, 500), false));
-	Base::Add(new Enemy(CVector2D(0, 500), false));
+	Base::Add(new Enemy(CVector2D(700, 500), false));
 
 
 
