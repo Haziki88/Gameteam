@@ -11,6 +11,8 @@ Player::Player(const CVector2D& p, bool flip) :
 	m_pos = p;
 	//中心位置設定
 	m_img.SetCenter(128, 224);
+	//当たり判定用矩形設定
+	m_rect = CRect(-150, -300, 150, 0);
 	//反転フラグ
 	m_flip = flip;
 	//通常状態へ
