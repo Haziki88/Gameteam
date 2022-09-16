@@ -18,7 +18,10 @@ void MainLoop(void) {
 	//ƒQ[ƒ€’†‚Ì“®‚«‚Í‚±‚±‚É‘‚­
 	//ƒQ[ƒ€’†‚Í‚±‚ÌŠÖ”_‚ğ1•bŠÔ‚É60‰ñŒÄ‚Ño‚µ‚Ä‚¢‚é
 	//--------------------------------------------------------------
-
+	Base::CheckKillAll();
+	Base::UpdateAll();
+	Base::CollisionAll();
+	Base::DrawAll();
 
 
 

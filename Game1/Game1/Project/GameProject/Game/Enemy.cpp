@@ -10,10 +10,10 @@ Enemy::Enemy(const CVector2D& p, bool flip) :
 
 	//m_img.Load("Image/Enemy.png", enemy_anim_data, 256, 256);
 	//再生アニメーション設定
-	m_img.ChangeAnimation(0);
 	//座標設定
 	m_pos = p;
 	//中心位置設定
+	m_img.SetSize(500, 400);
 	m_img.SetCenter(128, 224);
 	//当たり判定用矩形設定
 	m_rect = CRect(-32, -128, 32, 0);
@@ -24,10 +24,7 @@ Enemy::Enemy(const CVector2D& p, bool flip) :
 	m_cnt = 0;
 	//着地フラグ
 	m_is_ground = true;
-	//攻撃番号
-	m_attack_no = rand();
-	//ダメージ番号
-	m_attack_no = -1;
+	
 
 }void Enemy::StateIdle()
 {
@@ -68,36 +65,11 @@ Enemy::Enemy(const CVector2D& p, bool flip) :
 
 	
 
-	if (!m_is_ground) {
-		if (m_vec.y < 0)
-			//上昇アニメーション
-			m_img.ChangeAnimation(eAnimJumpUp, false);
-		else
-			//下降アニメーション
-			m_img.ChangeAnimation(eAnimJumpDown, false);
-	}
-	//移動中なら
-	else
-	{
-		if (move_flag) {
-			//走るアニメーション
-			m_img.ChangeAnimation(eAnimRun);
-		}
-		else {
-			//待機アニメーション
-			m_img.ChangeAnimation(eAnimIdle);
-		}
-
-	}
-	if (--m_cnt <= 0) {
-		m_cnt = rand() % 120 + 180;
-		m_state = eState_Wait;
-	}
+	
 
 }
 void Enemy::StateWait() {
-	//待機アニメーション
-	m_img.ChangeAnimation(eAnimIdle);
+
 	if (--m_cnt <= 0) {
 		m_cnt = rand() % 120 + 180;
 		m_state = eState_Idle;
@@ -105,15 +77,7 @@ void Enemy::StateWait() {
 }
 void Enemy::StateAttack()
 {
-	//攻撃アニメーションへ変更
-	m_img.ChangeAnimation(eAnimAttack01, false);
 	
-	//アニメーションが終了したら
-	if (m_img.CheckAnimationEnd()) {
-		//通常状態へ移行
-		m_state = eState_Wait;
-	}
-
 }
 void Enemy::StateDamage()
 {
@@ -125,26 +89,12 @@ void Enemy::StateDown()
 }
 void Enemy::Update() {
 	switch (m_state) {
-		//通常状態
-	case eState_Wait:
-		StateWait();
-		break;
+	
 		//通常状態
 	case eState_Idle:
 		StateIdle();
 		break;
-		//攻撃状態
-	case eState_Attack:
-		StateAttack();
-		break;
-		//ダメージ状態
-	case eState_Damage:
-		StateDamage();
-		break;
-		//ダウン状態
-	case eState_Down:
-		StateDown();
-		break;
+		
 	}
 	//落ちていたら落下中状態へ移行
 	if (m_is_ground && m_vec.y > GRAVITY * 4)
@@ -164,7 +114,7 @@ void Enemy::Update() {
 
 void Enemy::Draw() {
 	//位置設定
-	m_img.SetPos(GetScreenPos(m_pos));
+	m_img.SetPos(m_pos);
 	//反転設定
 	m_img.SetFlipH(m_flip);
 	//描画
