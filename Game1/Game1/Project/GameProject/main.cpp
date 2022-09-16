@@ -58,6 +58,8 @@ void Init(void)
 	//初期化の命令を書く
 	//ゲーム起動時に一度だけ呼ばれる
 	//-----------------------------------------------------
+	ADD_RESOURCE("Player", CImage::CreateImage("Image/school_randoseru_boy.png"));
+	
 	//プレイヤーの生成
 	Base::Add(new Player(CVector2D(200, 500), false));
 
