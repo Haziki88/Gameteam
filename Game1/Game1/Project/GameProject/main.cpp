@@ -13,7 +13,7 @@
 
 
 
-
+int count = 0;
 void MainLoop(void) {
 	//--------------------------------------------------------------
 	//ƒQ[ƒ€’†‚Ì“®‚«‚Í‚±‚±‚É‘‚­
@@ -23,7 +23,11 @@ void MainLoop(void) {
 	Base::UpdateAll();
 	Base::CollisionAll();
 	Base::DrawAll();
-
+	count++;
+	if (count == 1200) {
+		Base::Add(new Enemy(CVector2D(700, 500), false));
+		count = 0;
+	}
 
 
 }
