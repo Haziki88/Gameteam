@@ -55,6 +55,19 @@ Enemy::Enemy(const CVector2D& p, bool flip) :
 				m_flip = false;
 				move_flag = true;
 			}
+			else
+				//ãˆÚ“®
+				if (player->m_pos.y < m_pos.y + 64) {
+					//ˆÚ“®—Ê‚ğİ’è
+					m_pos.y += -move_speed;
+					//”½“]ƒtƒ‰ƒO
+				}
+				else
+					//‰ºˆÚ“®
+					if (player->m_pos.y > m_pos.y - 64) {
+						//ˆÚ“®—Ê‚ğİ’è
+						m_pos.y += move_speed;
+					}
 			
 	}
 
