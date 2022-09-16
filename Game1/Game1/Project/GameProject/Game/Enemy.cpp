@@ -13,10 +13,10 @@ Enemy::Enemy(const CVector2D& p, bool flip) :
 	//座標設定
 	m_pos = p;
 	//中心位置設定
-	m_img.SetSize(400, 300);
-	m_img.SetCenter(250, 300);
+	m_img.SetSize(200, 150);
+	m_img.SetCenter(100, 150);
 	//当たり判定用矩形設定
-	m_rect = CRect(-150, -300, 150, 0);
+	m_rect = CRect(-90, -150, 90, 0);
 	//反転フラグ
 	m_flip = flip;
 	//通常状態へ
@@ -122,7 +122,10 @@ void Enemy::Collision(Base* b)
 {
 	switch (b->m_type) {
 	//攻撃エフェクトとの判定
-	
+	case eType_Player:
+		if (Base::CollisionRect(this,b)) {
+			b->SetKill();
+		}
 	case eType_Field:
 		//Field型へキャスト、型変換できたら
 		if (Field* f = dynamic_cast<Field*>(b)) {
