@@ -61,7 +61,7 @@ void Init(void)
 
 	ADD_RESOURCE("doctor_isya_warui", CImage::CreateImage("Image/doctor_isya_warui.png"));
 
-	ADD_RESOURCE("Player", CImage::CreateImage("Image/school_randoseru_boy.png"));
+	ADD_RESOURCE("school_randoseru_boy", CImage::CreateImage("Image/school_randoseru_boy.png"));
 
 	//ÉvÉåÉCÉÑÅ[ÇÃê∂ê¨
 	Base::Add(new Player(CVector2D(200, 500), false));
