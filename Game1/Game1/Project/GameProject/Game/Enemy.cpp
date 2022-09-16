@@ -1,13 +1,12 @@
 #include "Enemy.h"
 #include "AnimData.h"
 #include "Field.h"
-#include "Slash.h"
-#include "Effect.h"
+
 
 Enemy::Enemy(const CVector2D& p, bool flip) :
 	Base(eType_Enemy) {
 	//画像複製
-	m_img = COPY_RESOURCE("Enemy", CImage);
+	m_img = COPY_RESOURCE("doctor_isya_warui", CImage);
 
 	//m_img.Load("Image/Enemy.png", enemy_anim_data, 256, 256);
 	//再生アニメーション設定
@@ -108,15 +107,7 @@ void Enemy::StateAttack()
 {
 	//攻撃アニメーションへ変更
 	m_img.ChangeAnimation(eAnimAttack01, false);
-	//3番目のパターンなら
-	if (m_img.GetIndex() == 3) {
-		if (m_flip) {
-			Base::Add(new Slash(m_pos + CVector2D(-64, -64), m_flip, eType_Enemy_Attack, m_attack_no));
-		}
-		else {
-			Base::Add(new Slash(m_pos + CVector2D(64, -64), m_flip, eType_Enemy_Attack, m_attack_no));
-		}
-	}
+	
 	//アニメーションが終了したら
 	if (m_img.CheckAnimationEnd()) {
 		//通常状態へ移行
@@ -126,20 +117,11 @@ void Enemy::StateAttack()
 }
 void Enemy::StateDamage()
 {
-	m_img.ChangeAnimation(eAnimDamage, false);
-	if (m_img.CheckAnimationEnd()) {
-		m_state = eState_Wait;
-	}
+	
 }
 void Enemy::StateDown()
 {
-	m_img.ChangeAnimation(eAnimDown, false);
-	if (m_img.CheckAnimationEnd()) {
-		Base::Add(new Effect("Effect_Smoke",
-			m_pos + CVector2D(0, 0), m_flip));
-
-		m_kill = true;
-	}
+	
 }
 void Enemy::Update() {
 	switch (m_state) {
@@ -168,8 +150,8 @@ void Enemy::Update() {
 	if (m_is_ground && m_vec.y > GRAVITY * 4)
 		m_is_ground = false;
 	//重力による落下
-	m_vec.y += GRAVITY;
-	m_pos += m_vec;
+	//m_vec.y += GRAVITY;
+	//m_pos += m_vec;
 
 
 	//アニメーション更新
@@ -194,27 +176,7 @@ void Enemy::Collision(Base* b)
 {
 	switch (b->m_type) {
 	//攻撃エフェクトとの判定
-	case eType_Player_Attack:
-		//Slash型へキャスト、型変換できたら
-		if (Slash* s = dynamic_cast<Slash*>(b)) {
-			if (m_damage_no != s->GetAttackNo() && Base::CollisionRect(this, s)) {
-				//同じ攻撃の連続ダメージ防止
-				m_damage_no = s->GetAttackNo();
-				m_hp -= 50;
-				if (m_hp <= 0) {
-					m_state = eState_Down;
-				}
-				else {
-					m_state = eState_Damage;
-
-				}
-				Base::Add(new Effect("Effect_Blood",
-					m_pos + CVector2D(0, -128), m_flip));
-
-				//Base::Add(new Effect("Effect_Blood", m_pos + CVector2D(0, -64), m_flip));
-			}
-		}
-		break;
+	
 	case eType_Field:
 		//Field型へキャスト、型変換できたら
 		if (Field* f = dynamic_cast<Field*>(b)) {
