@@ -34,6 +34,20 @@ Player::Player(const CVector2D& p, bool flip) :
 	//ジャンプ力
 	const float jump_pow = 12;
 
+	if (HOLD(CInput::eDown)) {
+		//移動量を設定
+		m_pos.y += move_speed;
+		//反転フラグ
+		m_flip = true;
+		move_flag = true;
+	}
+	if (HOLD(CInput::eUp)) {
+		//移動量を設定
+		m_pos.y += -move_speed;
+		//反転フラグ
+		m_flip = true;
+		move_flag = true;
+	}
 	//左移動
 	if (HOLD(CInput::eLeft)) {
 		//移動量を設定
@@ -167,6 +181,8 @@ void Player::Draw() {
 	m_img.SetFlipH(m_flip);
 	//描画
 	m_img.Draw();
+	//当たり判定矩形の表示
+	//DrawRect();
 }
 void Player::Collision(Base* b)
 {
