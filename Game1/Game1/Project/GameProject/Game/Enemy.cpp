@@ -13,7 +13,7 @@ Enemy::Enemy(const CVector2D& p, bool flip) :
 	//座標設定
 	m_pos = p;
 	//中心位置設定
-	m_img.SetSize(500, 400);
+	m_img.SetSize(400, 300);
 	m_img.SetCenter(128, 224);
 	//当たり判定用矩形設定
 	m_rect = CRect(-32, -128, 32, 0);
