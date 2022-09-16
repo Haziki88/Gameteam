@@ -4,7 +4,7 @@
 #define SCREEN_HEIGHT 720
 
 #include"Game/Player.h"
-
+#include"Game/Enemy.h"
 
 //--------------------------------------------
 //ƒOƒ[ƒoƒ‹•Ï”—Ìˆæ
