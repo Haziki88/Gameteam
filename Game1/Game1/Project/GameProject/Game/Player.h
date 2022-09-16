@@ -22,8 +22,7 @@ private:
 
 	int m_hp;
 
-	//‹éŒ`
-	CRect	m_rect;
+	
 	//Šeó‘Ô‚Å‚Ì‹““®
 	void StateIdle();
 	

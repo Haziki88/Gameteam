@@ -10,9 +10,9 @@ Player::Player(const CVector2D& p, bool flip) :
 	//座標設定
 	m_pos = p;
 	//中心位置設定
-	m_img.SetCenter(128, 224);
+	m_img.SetCenter(50, 200);
 	//当たり判定用矩形設定
-	m_rect = CRect(-150, -300, 150, 0);
+	m_rect = CRect(-50, -180, 50, 0);
 	//反転フラグ
 	m_flip = flip;
 	//通常状態へ
@@ -184,7 +184,7 @@ void Player::Draw() {
 	//描画
 	m_img.Draw();
 	//当たり判定矩形の表示
-	//DrawRect();
+	DrawRect();
 }
 void Player::Collision(Base* b)
 {
