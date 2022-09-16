@@ -3,7 +3,7 @@
 Field::Field() :Base(eType_Field)
 {
 	m_background = COPY_RESOURCE("Backgound", CImage);
-	m_ground_y = 540;
+	m_ground_y = 1020;
 }
 void Field::Draw()
 {
