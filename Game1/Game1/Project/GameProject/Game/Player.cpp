@@ -1,14 +1,12 @@
 #include "Player.h"
 #include "AnimData.h"
 #include "Field.h"
-#include "Slash.h"
-#include "Effect.h"
 Player::Player(const CVector2D& p, bool flip) :
 	Base(eType_Player) {
 	//画像複製
-	m_img = COPY_RESOURCE("Player", CImage);
+	m_img = COPY_RESOURCE("school_randoseru_boy", CImage);
 	//再生アニメーション設定
-	m_img.ChangeAnimation(0);
+	//m_img.ChangeAnimation(0);
 	//座標設定
 	m_pos = p;
 	//中心位置設定
@@ -53,7 +51,7 @@ Player::Player(const CVector2D& p, bool flip) :
 		move_flag = true;
 	}
 	//ジャンプ
-	if (m_is_ground && PUSH(CInput::eButton2)) {
+	/*if (m_is_ground && PUSH(CInput::eButton2)) {
 		m_vec.y = -jump_pow;
 		m_is_ground = false;
 	}
@@ -128,6 +126,7 @@ void Player::StateDown()
 	if (m_img.CheckAnimationEnd()) {
 		m_kill = true;
 	}
+}*/
 }
 void Player::Update() {
 	switch (m_state) {
@@ -136,7 +135,7 @@ void Player::Update() {
 		StateIdle();
 		break;
 		//攻撃状態
-	case eState_Attack:
+	/*case eState_Attack:
 		StateAttack();
 		break;
 		//ダメージ状態
@@ -162,6 +161,8 @@ void Player::Update() {
 	//スクロール設定
 	m_scroll.x = m_pos.x - 1280 / 2;
 
+}*/
+	}
 }
 
 void Player::Draw() {
@@ -174,7 +175,7 @@ void Player::Draw() {
 }
 void Player::Collision(Base* b)
 {
-	switch (b->m_type) {
+	/*switch (b->m_type) {
 		//ゴール判定
 	case eType_Goal:
 		if (Base::CollisionRect(this, b)) {
@@ -218,7 +219,7 @@ void Player::Collision(Base* b)
 		}
 		break;
 	}
-
+	*/
 }
 
 

@@ -3,7 +3,7 @@
 #define SCREEN_WIDTH 1280
 #define SCREEN_HEIGHT 720
 
-
+#include"Game/Player.h"
 
 
 //--------------------------------------------
@@ -58,7 +58,9 @@ void Init(void)
 	//初期化の命令を書く
 	//ゲーム起動時に一度だけ呼ばれる
 	//-----------------------------------------------------
-	
+	//プレイヤーの生成
+	Base::Add(new Player(CVector2D(200, 500), false));
+
 
 
 
