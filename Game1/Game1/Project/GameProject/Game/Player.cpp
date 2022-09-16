@@ -51,13 +51,13 @@ Player::Player(const CVector2D& p, bool flip) :
 		move_flag = true;
 	}
 	//ジャンプ
-	/*if (m_is_ground && PUSH(CInput::eButton2)) {
+	if (m_is_ground && PUSH(CInput::eButton2)) {
 		m_vec.y = -jump_pow;
 		m_is_ground = false;
 	}
 
 	//攻撃
-	if (PUSH(CInput::eButton1)) {
+	/*if (PUSH(CInput::eButton1)) {
 		//攻撃状態へ移行
 
 	//攻撃
@@ -146,7 +146,7 @@ void Player::Update() {
 	case eState_Down:
 		StateDown();
 		break;
-	}
+	}*/
 	//落ちていたら落下中状態へ移行
 	if (m_is_ground && m_vec.y > GRAVITY * 4)
 		m_is_ground = false;
@@ -154,15 +154,10 @@ void Player::Update() {
 	m_vec.y += GRAVITY;
 	m_pos += m_vec;
 
-
-	//アニメーション更新
-	m_img.UpdateAnimation();
-
 	//スクロール設定
 	m_scroll.x = m_pos.x - 1280 / 2;
 
-}*/
-	}
+}
 }
 
 void Player::Draw() {
@@ -175,8 +170,8 @@ void Player::Draw() {
 }
 void Player::Collision(Base* b)
 {
-	/*switch (b->m_type) {
-		//ゴール判定
+	switch (b->m_type) {
+		/*//ゴール判定
 	case eType_Goal:
 		if (Base::CollisionRect(this, b)) {
 			SetKill();
@@ -203,7 +198,7 @@ void Player::Collision(Base* b)
 				//Base::Add(new Effect("Effect_Blood", m_pos + CVector2D(0, -64), m_flip));
 			}
 		}
-		break;
+		break;*/
 	case eType_Field:
 		//Field型へキャスト、型変換できたら
 		if (Field* f = dynamic_cast<Field*>(b)) {
@@ -219,7 +214,7 @@ void Player::Collision(Base* b)
 		}
 		break;
 	}
-	*/
+	
 }
 
 
