@@ -9,6 +9,8 @@ private:
 	CImage m_town;
 	//画像オブジェクト（最遠景）
 	CImage m_sky;
+	//画像オブジェクト（背景）
+	CImage m_background;
 	//地面の高さ
 	float m_ground_y;
 
