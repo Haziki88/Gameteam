@@ -7,6 +7,7 @@
 #include"Game/Enemy.h"
 #include"Game/Field.h"
 #include"Title/Title.h"
+#include"Game over/Game over.h"
 
 //--------------------------------------------
 //ƒOƒ[ƒoƒ‹•Ï”—Ìˆæ

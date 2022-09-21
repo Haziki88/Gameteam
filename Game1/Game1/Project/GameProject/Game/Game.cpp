@@ -21,8 +21,9 @@ Game::~Game()
 	Base::KillAll();
 	//タイトルシーンへ
 	Base::Add(new Title());
+
 	if (!Base::FindObject(eType_Player) ) {
-		//Base::Add(new game over());
+		Base::Add(new Gameover());
 		m_kill = true;
 	}
 }
