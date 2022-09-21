@@ -2,6 +2,7 @@
 #include "Field.h"
 #include "Player.h"
 #include "Enemy.h"
+#include "bird.h"
 #include "../Title/Title.h"
 
 Game::Game() :Base(eType_Scene)
@@ -9,7 +10,7 @@ Game::Game() :Base(eType_Scene)
 	Base::Add(new Field());
 	Base::Add(new Player(CVector2D(100,540), false));
 	Base::Add(new Enemy(CVector2D(700, 500), false));
-
+	Base::Add(new bird(CVector2D(100, 500), false));
 
 }
 
