@@ -34,6 +34,9 @@
     <Filter Include="Title">
       <UniqueIdentifier>{4a5c9b13-1043-4956-8cb5-c0fd18d585e2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game over">
+      <UniqueIdentifier>{8f355674-cc01-4024-a87d-0d3d51a10537}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Player.h">

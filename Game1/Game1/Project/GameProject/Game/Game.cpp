@@ -20,6 +20,10 @@ Game::~Game()
 	Base::KillAll();
 	//タイトルシーンへ
 	Base::Add(new Title());
+	if (!Base::FindObject(eType_Player) ) {
+		//Base::Add(new game over());
+		m_kill = true;
+	}
 }
 
 void Game::Update()
