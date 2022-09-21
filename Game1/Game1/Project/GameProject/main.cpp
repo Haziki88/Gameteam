@@ -6,6 +6,7 @@
 #include"Game/Player.h"
 #include"Game/Enemy.h"
 #include"Game/Field.h"
+#include"Title/Title.h"
 
 //--------------------------------------------
 //グローバル変数領域
@@ -70,11 +71,13 @@ void Init(void)
 	ADD_RESOURCE("doctor_isya_warui", CImage::CreateImage("Image/doctor_isya_warui.png"));
 	ADD_RESOURCE("Backgound", CImage::CreateImage("Image/Backgound.png"));
 	ADD_RESOURCE("school_randoseru_boy", CImage::CreateImage("Image/school_randoseru_boy.png"));
+	ADD_RESOURCE("title", CImage::CreateImage("Image/title.png"));
 
 	//プレイヤーの生成
-	Base::Add(new Field());
-	Base::Add(new Player(CVector2D(200, 500), false));
-	Base::Add(new Enemy(CVector2D(700, 500), false));
+	//Base::Add(new Field());
+	//Base::Add(new Player(CVector2D(200, 500), false));
+	//Base::Add(new Enemy(CVector2D(700, 500), false));
+	Base::Add(new Title());
 
 
 
