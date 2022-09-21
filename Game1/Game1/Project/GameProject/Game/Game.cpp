@@ -4,6 +4,7 @@
 #include "Enemy.h"
 #include "bird.h"
 #include "../Title/Title.h"
+#include"../Game over/Game over.h"
 
 Game::Game() :Base(eType_Scene)
 {
