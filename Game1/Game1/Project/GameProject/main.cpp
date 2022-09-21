@@ -6,7 +6,7 @@
 #include"Game/Player.h"
 #include"Game/Enemy.h"
 #include"Game/Field.h"
-#include"Game/bird.h"
+#include"Title/Title.h"
 
 //--------------------------------------------
 //グローバル変数領域
@@ -25,8 +25,8 @@ void MainLoop(void) {
 	Base::CollisionAll();
 	Base::DrawAll();
 	count++;
-	if (count == 1200) {
-		Base::Add(new Enemy(CVector2D(700, 500), false));
+	if (count >= (rand()%9+4)*60||count==600) {
+		Base::Add(new Enemy(CVector2D(-100, rand()%10*100), false));
 		count = 0;
 	}
 
@@ -72,11 +72,15 @@ void Init(void)
 	ADD_RESOURCE("Backgound", CImage::CreateImage("Image/Backgound.png"));
 	ADD_RESOURCE("school_randoseru_boy", CImage::CreateImage("Image/school_randoseru_boy.png"));
 	ADD_RESOURCE("bird_toki_fly", CImage::CreateImage("Image/bird_toki_fly.png"));
+	ADD_RESOURCE("title", CImage::CreateImage("Image/title.png"));
+
 	//プレイヤーの生成
-	Base::Add(new Field());
-	Base::Add(new Player(CVector2D(200, 500), false));
-	Base::Add(new Enemy(CVector2D(700, 500), false));
-	Base::Add(new bird(CVector2D(700, 0), false));
+	//Base::Add(new Field());
+	//Base::Add(new Player(CVector2D(200, 500), false));
+	//Base::Add(new Enemy(CVector2D(700, 500), false));
+
+	Base::Add(new Title());
+
 
 
 
