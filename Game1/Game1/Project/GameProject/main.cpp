@@ -25,8 +25,8 @@ void MainLoop(void) {
 	Base::CollisionAll();
 	Base::DrawAll();
 	count++;
-	if (count == 1200) {
-		Base::Add(new Enemy(CVector2D(700, 500), false));
+	if (count >= (rand()%9+4)*60||count==600) {
+		Base::Add(new Enemy(CVector2D(-100, rand()%10*100), false));
 		count = 0;
 	}
 
