@@ -4,6 +4,7 @@
 #include "Enemy.h"
 #include "bird.h"
 #include "../Title/Title.h"
+#include"../Game over/Game over.h"
 
 Game::Game() :Base(eType_Scene)
 {
@@ -20,6 +21,10 @@ Game::~Game()
 	Base::KillAll();
 	//タイトルシーンへ
 	Base::Add(new Title());
+	if (!Base::FindObject(eType_Player) ) {
+		//Base::Add(new game over());
+		m_kill = true;
+	}
 }
 
 void Game::Update()
