@@ -8,7 +8,8 @@ bird::bird(const CVector2D& pos,bool flip) :Base(eType_bird) {
 	//表示サイズ設定
 	m_img.SetSize(150, 150);
 	//描画の基点設定(画像の中心に設定)
-	m_img.SetCenter(16, 16);
+	m_img.SetCenter(75, 75);
+	m_rect = CRect(-75, -50, 75, 40);
 }
 void bird::Update() {
 	//敵を下に動かす
@@ -29,4 +30,5 @@ void bird::Draw() {
 	m_img.SetPos(m_pos);
 	//画像の表示
 	m_img.Draw();
+	//DrawRect();
 }

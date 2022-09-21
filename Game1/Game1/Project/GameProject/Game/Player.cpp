@@ -217,6 +217,12 @@ void Player::Collision(Base* b)
 			}
 		}
 		break;*/
+	case eType_bird:
+		if (Base::CollisionRect(this,b)){
+			
+
+		}
+		break;
 	case eType_Field:
 		//Field型へキャスト、型変換できたら
 		if (Field* f = dynamic_cast<Field*>(b)) {
