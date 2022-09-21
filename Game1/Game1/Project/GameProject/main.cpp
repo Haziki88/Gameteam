@@ -83,7 +83,7 @@ void Init(void)
 	ADD_RESOURCE("school_randoseru_boy", CImage::CreateImage("Image/school_randoseru_boy.png"));
 	ADD_RESOURCE("bird_toki_fly", CImage::CreateImage("Image/bird_toki_fly.png"));
 	ADD_RESOURCE("title", CImage::CreateImage("Image/title.png"));
-
+	ADD_RESOURCE("gameover", CImage::CreateImage("Image/gameover.png"));
 	//ÉvÉåÉCÉÑÅ[ÇÃê∂ê¨
 	//Base::Add(new Field());
 	//Base::Add(new Player(CVector2D(200, 500), false));
