@@ -7,6 +7,7 @@ private:
 
 	//動き制御用のカウンター
 	int m_cnt;
+	int m_move;
 public:
 	//コンストラクタ
 	//pos [in] 出現位置

@@ -16,13 +16,37 @@ void bird::Update() {
 	const int move_speed = 32;
 	//カウントアップ
 	m_cnt++;
-	if (m_pos.y < 1000) {
+	m_move = rand() % 4;
+	if (m_pos.y < 1000&&m_pos.x<1920) {
 		//60カウント(1秒)以上なら
-		if (m_cnt >= 60) {
-			//移動
-			m_pos.y += move_speed;
-			//カウンターリセット
-			m_cnt = 0;
+		if (m_cnt >= 30) {
+			switch (m_move) {
+			case 0:
+				//移動
+				m_pos.y += move_speed;
+				//カウンターリセット
+				m_cnt = 0;
+				break;
+			case 1:
+				//移動
+				m_pos.y -= move_speed;
+				//カウンターリセット
+				m_cnt = 0;
+				break;
+			case 2:
+				//移動
+				m_pos.x += move_speed;
+				//カウンターリセット
+				m_cnt = 0;
+				break;
+			case 3:
+				//移動
+				m_pos.x -= move_speed;
+				//カウンターリセット
+				m_cnt = 0;
+				break;
+			}
+			
 		}
 	}
 }

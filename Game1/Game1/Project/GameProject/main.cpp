@@ -85,6 +85,7 @@ void Init(void)
 	ADD_RESOURCE("bird_toki_fly", CImage::CreateImage("Image/bird_toki_fly.png"));
 	ADD_RESOURCE("title", CImage::CreateImage("Image/title.png"));
 	ADD_RESOURCE("gameover", CImage::CreateImage("Image/gameover.png"));
+	SOUND("BGM_maoudamasii")->Load("Sound/BGM/BGM_maoudamasii.mp3");
 	//ƒvƒŒƒCƒ„[‚Ì¶¬
 	//Base::Add(new Field());
 	//Base::Add(new Player(CVector2D(200, 500), false));

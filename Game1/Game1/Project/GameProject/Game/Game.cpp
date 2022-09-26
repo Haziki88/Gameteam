@@ -12,6 +12,7 @@ Game::Game() :Base(eType_Scene)
 	Base::Add(new Player(CVector2D(100,540), false));
 	Base::Add(new Enemy(CVector2D(700, 500), false));
 	Base::Add(new bird(CVector2D(100, 500), false));
+	SOUND("BGM_maoudamasii")->Play(true);
 
 }
 
